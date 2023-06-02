@@ -65,7 +65,7 @@ const addEmployee = [
     },
 ];
 
-// Write to the HTML file in src
+// Write to the HTML file in dist folder
 function writeToFile(fileName, data) {
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
@@ -126,7 +126,7 @@ function init() {
                     internResponse.school
                 );
                 teamMembers.push(intern);
-                
+
                 // Ask if the user wants to add another employee
                 inquirer.prompt(addEmployee).then((addEmployeeResponse) => {
                     if (addEmployeeResponse.addEmployee) {
