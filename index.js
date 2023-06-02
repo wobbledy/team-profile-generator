@@ -84,7 +84,8 @@ function init() {
                     managerResponse.officeNumber
                 );
                 teamMembers.push(manager);
-
+                console.log(manager);
+                
                 // Ask if the user wants to add another employee
                 inquirer.prompt(addEmployee).then((addEmployeeResponse) => {
                     if (addEmployeeResponse.addEmployee) {

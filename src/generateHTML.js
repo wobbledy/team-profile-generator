@@ -1,5 +1,4 @@
-// Write code to generate HTML based on the user input
-
+// Dynamicly generates the HTML file based on the user input through the answers object
 const generateHTML = (answers) => {
     return `<!DOCTYPE html>
     <html lang="en">
