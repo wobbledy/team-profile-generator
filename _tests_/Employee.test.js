@@ -55,7 +55,7 @@ describe("Employee", () => {
     // Test that it can get an email
     it("Can get email via getEmail()", () => {
         const testEmail = "test@test.com";
-        const employee = new Employee("Zach", 100, testEmail);
+        const employee = new Employee("Zach", testEmail);
         expect(employee.getEmail()).toBe(testEmail);
     }
     );
