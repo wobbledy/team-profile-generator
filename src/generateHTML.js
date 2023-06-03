@@ -1,5 +1,6 @@
 // Dynamicly generates the HTML file based on the user input through the answers object
 const generateHTML = (answers) => {
+    console.log(answers);
     return `<!DOCTYPE html>
     <html lang="en">
     <head>

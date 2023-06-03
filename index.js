@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
+const fs = require('fs/promises');
 const path = require('path');
 const generateHTML = require('./src/generateHTML');
 const Manager = require('./lib/Manager');
@@ -67,7 +67,13 @@ const addEmployee = [
 
 // Write to the HTML file in dist folder
 function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    console.log(fileName, data);
+    fs.writeFile(path.join(process.cwd(), fileName), data).then(() => {
+        console.log('Successfully wrote to index.html');
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 }
 
 // Initialize the app and calls Inquirer to ask the qeustions based on the role
@@ -91,7 +97,7 @@ function init() {
                     if (addEmployeeResponse.addEmployee) {
                         init();
                     } else {
-                        writeToFile('index.html', generateHTML(teamMembers));
+                        writeToFile('/dist/index.html', generateHTML(teamMembers));
                     }
                 });
             });
@@ -112,7 +118,7 @@ function init() {
                     if (addEmployeeResponse.addEmployee) {
                         init();
                     } else {
-                        writeToFile('index.html', generateHTML(teamMembers));
+                        writeToFile('/dist/index.html', generateHTML(teamMembers));
                     }
                 });
             });
@@ -133,7 +139,7 @@ function init() {
                     if (addEmployeeResponse.addEmployee) {
                         init();
                     } else {
-                        writeToFile('index.html', generateHTML(teamMembers));
+                        writeToFile('/dist/index.html', generateHTML(teamMembers));
                     }
                 });
             });
