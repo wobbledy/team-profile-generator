@@ -1,3 +1,4 @@
+// Require the necessary files and packages
 const inquirer = require('inquirer');
 const fs = require('fs/promises');
 const path = require('path');
@@ -67,7 +68,6 @@ const addEmployee = [
 
 // Write to the HTML file in dist folder
 function writeToFile(fileName, data) {
-    console.log(fileName, data);
     fs.writeFile(path.join(process.cwd(), fileName), data).then(() => {
         console.log('Successfully wrote to index.html');
     })
@@ -90,7 +90,7 @@ function init() {
                     managerResponse.officeNumber
                 );
                 teamMembers.push(manager);
-                console.log(manager);
+                //console.log(manager);
                 
                 // Ask if the user wants to add another employee
                 inquirer.prompt(addEmployee).then((addEmployeeResponse) => {
